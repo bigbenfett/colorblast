@@ -1,9 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, render_to_response, RequestContext
 from django.http import HttpResponse
 
 
 def index(request):
-    return HttpResponse("Hello, world. You're at the colorblastapp index.")
+    return render_to_response("home.html", locals(), context_instance=RequestContext(request))
 
 def detail(request, question_id):
     return HttpResponse("You're looking at question %s." % question_id)
